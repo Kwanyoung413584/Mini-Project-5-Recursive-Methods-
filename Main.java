@@ -55,6 +55,11 @@ class Main {
     return calc;
   }
 
+  // Infinite Sum
+  public static double infiniteSum(int start, int multi){
+    double calc = ((double) start/(1 - (double) multi));
+    return calc;
+  }
 
 }
 
