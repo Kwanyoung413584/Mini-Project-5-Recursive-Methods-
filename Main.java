@@ -17,29 +17,38 @@ class Main {
 
     int multinum = Scanner.nextInt();
 
-    System.out.println("What will be your term? (0 means it will not multiply)");
+    System.out.println("What will be your term? (1 means it will not multiply)");
 
     int term = Scanner.nextInt();
 
     int endpoint = geometricSequence(startpoint, multinum, term, 0);
 
-    System.out.println("This will be your number at term number " + term);
+    System.out.println("\nThis will be your number at term number " + term);
     System.out.println(endpoint);
 
+    System.out.println("\nHere is the total sum from " + startpoint + " through " + endpoint);
+
+    int sumendpoint = geometricSequenceSum(startpoint, multinum, term, endpoint);
+    System.out.println(sumendpoint);
+
+    System.out.println("\nHere is the sum of the same pattern but at a infinite term");
+
+    double suminfinitepoint = infiniteSum(startpoint, multinum);
+    System.out.println(suminfinitepoint);
 
   }
 
-  // Item Lister Method (Recursive)
+  // Geometric Sequence (Recursive)
   public static int geometricSequence(int start, int multi, int term, int startterm){
-    if (startterm <= term) {
-      int calc = start * multi;
-      geometricSequence(calc, multi, term, startterm + 1);
+    int calc = start * (int) Math.pow((double) multi,(double) startterm - 1);
+    if (startterm < term) {
+      return geometricSequence(start, multi, term, startterm + 1);
     }
     else {
-      return start;
+      return calc;
     }
-    return start;
   }
+
 }
 
 
