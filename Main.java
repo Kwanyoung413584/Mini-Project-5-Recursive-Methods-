@@ -49,6 +49,13 @@ class Main {
     }
   }
 
+  // Geometric Sequence Sum
+  public static int geometricSequenceSum(int start, int multi, int term, int end){
+    int calc = (start * (1 - (int) Math.pow((double) multi, (double) term))) / (1 - multi);
+    return calc;
+  }
+
+
 }
 
 
